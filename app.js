@@ -1,6 +1,6 @@
-// My first time tinkering with Node.js // 
+// tinkering with Node.js // 
 
-// Created a function that takes data from an array and spits out the average //
+// a function that takes data from an array and spits out the average //
 
 function average (scores){
     var total = 0;
