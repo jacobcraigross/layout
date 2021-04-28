@@ -1,16 +1,34 @@
-// tinkering with Node.js // 
+// PASCALS TRIANGLE
 
-// a function that takes data from an array and spits out the average //
-
-function average (scores){
-    var total = 0;
-    scores.forEach (function(score){
-        total += score;
-    });
-    var avg = total/scores.length;
-    return Math.round(avg);
+const initApp = () => {
+    const pascalArray = pascalsTriangle(8); // this function will return an array of arrays 
 }
 
-var scores = [60, 90, 99, 44, 88, 77];
-console.log(average(scores));
+document.addEventListener("DOMContentLoaded", initApp);
 
+const pascalsTriangle = (rows = 3) => {
+    if(rows < 3) rows = 3;
+    const stackArray = [];
+    let i = 1;
+
+    while(i <= rows) {
+        const rowArray = [];
+        let x = 0;
+        let rowValue;
+
+        while(x < i) {
+            if(!x || x === i - 1) {
+                rowValue = 1
+            } else {
+                rowValue = ( parseInt (stackArray[i - 2][x]) + parseInt (stackArray[i - 2][x - 1]) );
+            }
+            rowArray.push(rowValue);
+            x++;
+        }
+        console.log(rowArray);
+        stackArray.push(rowArray);
+        i++;
+    }
+    console.log(stackArray);
+    return stackArray;
+}
